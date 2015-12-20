@@ -1,0 +1,6 @@
+l = eval(input("Enter the length at rest in cm: "))
+v = eval(input("Enter the velocity in cm: "))
+c = 3*(10**10)
+s = (1-((v**2)/(c**2)))
+R = l*(s**(1/2))
+print("The relative length is: ", R)

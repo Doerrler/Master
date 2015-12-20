@@ -1,0 +1,106 @@
+package lab1.S5;
+
+public class DollarLong {
+
+	public static void main(String[] args) {
+		
+		System.out.println(args[0]);
+		
+		String nosymbol = args[0].replace("$", "");
+		String[] parts = nosymbol.split("\\.");
+
+		int dollars = Integer.valueOf(parts[0]);
+		int cents = Integer.valueOf(parts[1]);
+		int millions = dollars/1000000;
+		int thousands = (dollars%1000000)/1000;
+		int ones = dollars%1000;
+		
+		String output = "";
+		Boolean teen = false;
+		
+		if (millions > 0)
+			output += wordNum(millions, 1) + " million ";
+		
+		if (thousands != 0) {
+			if (thousands >= 100)
+				output += wordNum(thousands/100, 1) + " hundred ";
+			if (thousands%100 >= 20)
+				output += wordNum((thousands%100)/10, 2) + " ";
+			else if (thousands%100 < 10 & thousands%10 != 0)
+				output += "and ";
+			else if (thousands%100 == 0)
+				output += "";
+			else {
+				teen = true;
+				output += wordNum(thousands%100, 1) + " ";
+			}
+			if (!teen & thousands%10 != 0)
+				output += wordNum(thousands%10, 1) + " ";
+			output += "thousand ";
+		}
+		
+		teen = false;
+		
+		if (ones != 0) {
+			if (ones >= 100)
+				output += wordNum(ones/100, 1) + " hundred ";
+			if (ones%100 >= 20)
+				output += wordNum((ones%100)/10, 2) + " ";
+			else if (ones%100 < 10 & ones%10 != 0)
+				output += "and ";
+			else if (ones%100 == 0)
+				output += "";
+			else {
+				teen = true;
+				output += wordNum(ones%100, 1) + " ";
+			}
+			if (!teen & ones%10 != 0)
+				output += wordNum(ones%10, 1) + " ";
+		}
+		
+		output += "and " + cents + "/100 dollars";
+		System.out.println(output);
+	}
+	
+	public static String wordNum(int value, int place) {
+		
+		String tac = "";
+		
+		if (place == 1) {
+			switch(value) {
+				case 1: tac = "one"; break;
+				case 2: tac = "two"; break;
+				case 3: tac = "three"; break;
+				case 4: tac = "four"; break;
+				case 5: tac = "five"; break;
+				case 6: tac = "six"; break;
+				case 7: tac = "seven"; break;
+				case 8: tac = "eight"; break;
+				case 9: tac = "nine"; break;
+				case 10: tac = "ten"; break;
+				case 11: tac = "eleven"; break;
+				case 12: tac = "twelve"; break;
+				case 13: tac = "thirteen"; break;
+				case 14: tac = "fourteen"; break;
+				case 15: tac = "fifteen"; break;
+				case 16: tac = "sixteen"; break;
+				case 17: tac = "seventeen"; break;
+				case 18: tac = "eighteen"; break;
+				case 19: tac = "nineteen"; break;
+			}
+		}
+		else {
+			switch(value) {
+				case 2: tac = "twenty"; break;
+				case 3: tac = "thirty"; break;
+				case 4: tac = "forty"; break;
+				case 5: tac = "fifty"; break;
+				case 6: tac = "sixty"; break;
+				case 7: tac = "seventy"; break;
+				case 8: tac = "eighty"; break;
+				case 9: tac = "ninety"; break;
+			}
+		}
+	return tac;
+	}
+}

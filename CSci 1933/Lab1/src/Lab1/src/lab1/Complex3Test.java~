@@ -1,0 +1,184 @@
+package lab1;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Complex3Test {
+
+	@Test
+	public void testComplex3() {
+		Complex3 obj = new Complex3(5,5);
+		assertTrue(obj != null);
+		assertTrue(obj.getImaginaryPart()==5);
+		assertTrue(obj.getRealPart()==5);
+		assertTrue(obj instanceof Complex3);
+	}
+
+	@Test
+	public void testSetRealPart() {
+		Complex3 obj = new Complex3(5,5);
+		double expected = 7.5, actual = 0;
+		obj.setRealPart(expected);
+		actual = obj.getRealPart();
+		assertEquals(expected,actual,0.01);
+	}
+
+	@Test
+	public void testSetImaginaryPart() {
+		Complex3 obj = new Complex3(5,5);
+		double expected = 7.5, actual = 0;
+		obj.setImaginaryPart(expected);
+		actual = obj.getImaginaryPart();
+		assertEquals(expected,actual,0.01);
+	}
+
+	@Test
+	public void testGetRealPart() {
+		Complex3 obj = new Complex3(10.0,5.0);
+		double expected = 10.0, actual = 0;
+		actual = obj.getRealPart();
+		assertEquals(expected,actual,0.01);
+	}
+
+	@Test
+	public void testGetImaginaryPart() {
+		Complex3 obj = new Complex3(10.0,5.0);
+		double expected = 5.0, actual = 0;
+		actual = obj.getImaginaryPart();
+		assertEquals(expected,actual,0.01);
+	}
+
+	@Test
+	public void testAddComplexPositive() {
+		Complex3 num1 = new Complex3(3.1,5.2);
+		Complex3 num2 = new Complex3(2.3,7.4);
+		num1.addComplex(num2);
+		double expectedReal = 5.4, expectedImaginary = 12.6;
+		double actualReal = 0, actualImaginary = 0;
+		actualReal = num1.getRealPart();
+		actualImaginary = num1.getImaginaryPart();
+		assertEquals(expectedReal,actualReal,0.01);
+		assertEquals(expectedImaginary,actualImaginary,0.01);
+	}
+	
+	@Test
+	public void testAddComplexNegReal() {
+		Complex3 num1 = new Complex3(-3.9,5.2);
+		Complex3 num2 = new Complex3(2.7,7.3);
+		num1.addComplex(num2);
+		double expectedReal = -1.2, expectedImaginary = 12.5;
+		double actualReal = 0, actualImaginary = 0;
+		actualReal = num1.getRealPart();
+		actualImaginary = num1.getImaginaryPart();
+		assertEquals(expectedReal,actualReal,0.01);
+		assertEquals(expectedImaginary,actualImaginary,0.01);
+	}
+	
+	@Test
+	public void testAddComplexNegImaginary() {
+		Complex3 num1 = new Complex3(3.4,5.1);
+		Complex3 num2 = new Complex3(2.2,-7.3);
+		num1.addComplex(num2);
+		double expectedReal = 5.6, expectedImaginary = -2.2;
+		double actualReal = 0, actualImaginary = 0;
+		actualReal = num1.getRealPart();
+		actualImaginary = num1.getImaginaryPart();
+		assertEquals(expectedReal,actualReal,0.01);
+		assertEquals(expectedImaginary,actualImaginary,0.01);
+	}
+	
+	@Test
+	public void testAddComplexNegBoth() {
+		Complex3 num1 = new Complex3(-3.3,-5.2);
+		Complex3 num2 = new Complex3(-2.1,-7.6);
+		num1.addComplex(num2);
+		double expectedReal = -5.4, expectedImaginary = -12.8;
+		double actualReal = 0, actualImaginary = 0;
+		actualReal = num1.getRealPart();
+		actualImaginary = num1.getImaginaryPart();
+		assertEquals(expectedReal,actualReal,0.01);
+		assertEquals(expectedImaginary,actualImaginary,0.01);
+	}
+	
+	@Test
+	public void testSubtractComplexPositive() {
+		Complex3 num1 = new Complex3(3.4,15.3);
+		Complex3 num2 = new Complex3(2.1,7.2);
+		num1.subtractComplex(num2);
+		double expectedReal = 1.3, expectedImaginary = 8.1;
+		double actualReal = 0, actualImaginary = 0;
+		actualReal = num1.getRealPart();
+		actualImaginary = num1.getImaginaryPart();
+		assertEquals(expectedReal,actualReal,0.01);
+		assertEquals(expectedImaginary,actualImaginary,0.01);
+	}
+	
+	@Test
+	public void testSubtractComplexNegPositive() {
+		Complex3 num1 = new Complex3(3.4,15.3);
+		Complex3 num2 = new Complex3(-2.1,-7.2);
+		num1.subtractComplex(num2);
+		double expectedReal = 5.5, expectedImaginary = 22.5;
+		double actualReal = 0, actualImaginary = 0;
+		actualReal = num1.getRealPart();
+		actualImaginary = num1.getImaginaryPart();
+		assertEquals(expectedReal,actualReal,0.01);
+		assertEquals(expectedImaginary,actualImaginary,0.01);
+	}
+	
+	@Test
+	public void testSubtractComplexNegReal() {
+		Complex3 num1 = new Complex3(-3.1,7.3);
+		Complex3 num2 = new Complex3(12.2,5.4);
+		num1.subtractComplex(num2);
+		double expectedReal = -15.3, expectedImaginary = 1.9;
+		double actualReal = 0, actualImaginary = 0;
+		actualReal = num1.getRealPart();
+		actualImaginary = num1.getImaginaryPart();
+		assertEquals(expectedReal,actualReal,0.01);
+		assertEquals(expectedImaginary,actualImaginary,0.01);
+	}
+	
+	@Test
+	public void testSubtractComplexNegImaginary() {
+		Complex3 num1 = new Complex3(3.4,-5.3);
+		Complex3 num2 = new Complex3(2.2,7.1);
+		num1.subtractComplex(num2);
+		double expectedReal = 1.2, expectedImaginary = -12.4;
+		double actualReal = 0, actualImaginary = 0;
+		actualReal = num1.getRealPart();
+		actualImaginary = num1.getImaginaryPart();
+		assertEquals(expectedReal,actualReal,0.01);
+		assertEquals(expectedImaginary,actualImaginary,0.01);
+	}
+	
+	@Test
+	public void testSubtractComplexNegBoth() {
+		Complex3 num1 = new Complex3(-3.5,-5.2);
+		Complex3 num2 = new Complex3(2.6,7.4);
+		num1.subtractComplex(num2);
+		double expectedReal = -6.1, expectedImaginary = -12.6;
+		double actualReal = 0, actualImaginary = 0;
+		actualReal = num1.getRealPart();
+		actualImaginary = num1.getImaginaryPart();
+		assertEquals(expectedReal,actualReal,0.01);
+		assertEquals(expectedImaginary,actualImaginary,0.01);
+	}
+	
+	@Test
+	public void testAdditiveIdentity()
+	{
+		Complex3 num1 = new Complex3(5,5);
+		Complex3 num2 = new Complex3(-5,-5);
+		double expectedReal = 0;
+		double expectedImaginary = 0;
+		num1.addComplex(num2);
+		
+		double actualReal = num1.getRealPart();
+		double actualImaginary = num1.getImaginaryPart();
+		assertEquals(expectedReal,actualReal,0.1);
+		assertEquals(expectedImaginary,actualImaginary,0.1);
+	}
+
+}
