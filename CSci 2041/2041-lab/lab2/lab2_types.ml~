@@ -1,0 +1,58 @@
+(* Type inference examples.  For each  *)
+
+(* Intended type of pairwith:'a -> 'b list -> ('a* 'b ) list
+   Actual type: 'a -> 'b list -> ('a* 'b ) list
+   Explanation: From the name of the function we know that we need 2 inputs as arguements. 
+Then in first match part, we know that lst is a list which we don't know the exact type of elements inside the list.
+Which gives us 'b list.
+And in second situation, we know that x can be any type which means that x's type is 'a. And the value return in 
+second match tells us that the 'b list will become a tuple list and each tuple is consisted of x and the element of 
+'b list. Thus we know that the result of the function should be ('a* 'b) list.
+ *)
+let rec pairwith x lst =
+  match lst with
+  | [] -> []
+  | (h::t) -> (x,h) :: pairwith x t
+
+(* Intended type of has_any: 'a -> 'a list -> bool
+   Actual type: 'a -> 'a list -> bool
+   Explanation: From the name lane of the function, we know that the function takes 2 arguements as inputs which we 
+assume x's type is 'a and lst type is 'b list. 
+Then from the first match lane, we find that the function is trying to return a boolean. Thus we can first write the 
+type as 'a -> 'b list -> bool. However, when we see the second match situation, we find that x might equal to h which
+means that x and h which is an elment inside of the list has the same type. Thus, we know that elements in the list 
+has the same type as x. Then we can fix the type to 'a -> 'a list -> bool.
+ *)
+let rec has_any x lst =
+  match lst with
+  | [] -> false
+  | (h::t) -> x=h || has_any x t
+
+(* Intended type of lookup: 'a -> ('a * string) list-> string
+   Actual type: 'a -> ('a * string) list-> string
+   Explanation: From the name lane of the function, we know that lookup function takes two arguements as inputs and 
+we assume key's type is 'a and lst's type is 'b list.
+Then we see the first match situation, we can see the result of the first match situation is a string which means that
+the result's type should be a string.  But we still can't figure out what the type of the list is. 
+Then we move to the second match situation. WE see that the head of the lst is a tuple which consists 2 elements. Thus, we 
+can write the 'b list to ('b * 'c) list. Then we see the result of the match case. We see that k might equal to key, when key
+has the type 'a. Then we know that k's type should be the same as key's type. And when k is equal to key, the result is v.
+However, from the first match situation, we know that the result should be a string. Then, we know that v is a string.
+Thus the input list's type can be changed from ('b * 'c) list  to ('a * string) list.
+ *)
+let rec lookup key lst =
+  match lst with
+  | [] -> "No match"
+  | (k,v)::t -> if k=key then v else lookup key t
+				
+
+(* Intended type of first_of_first :
+   Actual type:
+   Explanation:
+ *)				
+let first_of_first lst =
+  let rec fst l = match l with
+    | h::t -> h
+    | []->raise (Invalid_argument "l should have at least 1 arguement!")
+  and f1 = fst lst in
+  fst f1

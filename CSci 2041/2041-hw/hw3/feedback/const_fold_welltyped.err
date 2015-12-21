@@ -1,0 +1,48 @@
+File "program.ml", line 60, characters 17-36:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+((IntResult _|UnitResult|FunResult (_, _, _)), _)
+File "program.ml", line 79, characters 6-25:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+((BoolResult _|UnitResult|FunResult (_, _, _)), _)
+File "program.ml", line 80, characters 6-25:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+((BoolResult _|UnitResult|FunResult (_, _, _)), _)
+File "program.ml", line 83, characters 6-25:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+((IntResult _|UnitResult|FunResult (_, _, _)), _)
+File "program.ml", line 90, characters 6-26:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+((IntResult _|UnitResult|FunResult (_, _, _)), _)
+File "program.ml", line 91, characters 6-26:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+((IntResult _|UnitResult|FunResult (_, _, _)), _)
+File "program.ml", line 103, characters 6-25:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+((IntResult _|UnitResult|FunResult (_, _, _)), _)
+File "program.ml", line 108, characters 6-44:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+((IntResult _|BoolResult _|UnitResult), _)
+File "interpreter.ml", line 168, characters 26-272:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+(Boolean _|If (_, _, _)|Let (_, _, _)|Name _|And (_, _)|Or (_, _)|Not _|
+Lt (_, _)|Eq (_, _)|Gt (_, _)|Seq _|While (_, _)|Set (_, _)|Fun (_, _, _)|
+Apply (_, _)|Print _|Readint)
+File "interpreter.ml", line 175, characters 29-220:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+(Const _|Add (_, _)|Sub (_, _)|Mul (_, _)|Div (_, _)|If (_, _, _)|
+Let (_, _, _)|Name _|Lt (_, _)|Eq (_, _)|Gt (_, _)|Seq _|While (_, _)|
+Set (_, _)|Fun (_, _, _)|Apply (_, _)|Print _|Readint)
+File "interpreter.ml", line 186, characters 29-133:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+[]

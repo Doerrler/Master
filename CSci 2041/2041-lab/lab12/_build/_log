@@ -1,0 +1,15 @@
+### Starting build.
+# Target: echoSrv.ml.depends, tags: { extension:ml, file:echoSrv.ml, ocaml, ocamldep, package(lwt), package(lwt.unix), quiet }
+/soft/ocaml-4.01.0/linux_x86_64/bin/ocamldep.opt -modules echoSrv.ml > echoSrv.ml.depends # cached
+# Target: echoSrv.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:echoSrv.cmo, file:echoSrv.ml, implem, ocaml, package(lwt), package(lwt.unix), quiet }
+/soft/ocaml-4.01.0/linux_x86_64/bin/ocamlc.opt -c -I /soft/ocaml-4.01.0/linux_x86_64/lib/ocaml -I /soft/ocaml-4.01.0/linux_x86_64/lib/ocaml/site-lib/lwt -o echoSrv.cmo echoSrv.ml # cached
+# Target: echoSrv.cmx, tags: { compile, extension:cmx, extension:ml, file:echoSrv.cmx, file:echoSrv.ml, implem, native, ocaml, package(lwt), package(lwt.unix), quiet }
+/soft/ocaml-4.01.0/linux_x86_64/bin/ocamlopt.opt -c -I /soft/ocaml-4.01.0/linux_x86_64/lib/ocaml -I /soft/ocaml-4.01.0/linux_x86_64/lib/ocaml/site-lib/lwt -o echoSrv.cmx echoSrv.ml # cached
+# Target: echoSrv.native, tags: { dont_link_with, extension:native, file:echoSrv.native, link, native, ocaml, package(lwt), package(lwt.unix), program, quiet }
+/soft/ocaml-4.01.0/linux_x86_64/bin/ocamlopt.opt -I /soft/ocaml-4.01.0/linux_x86_64/lib/ocaml -I /soft/ocaml-4.01.0/linux_x86_64/lib/ocaml/site-lib/lwt lwt.cmxa lwt-log.cmxa unix.cmxa bigarray.cmxa lwt-unix.cmxa echoSrv.cmx -o echoSrv.native
++ /soft/ocaml-4.01.0/linux_x86_64/bin/ocamlopt.opt -I /soft/ocaml-4.01.0/linux_x86_64/lib/ocaml -I /soft/ocaml-4.01.0/linux_x86_64/lib/ocaml/site-lib/lwt lwt.cmxa lwt-log.cmxa unix.cmxa bigarray.cmxa lwt-unix.cmxa echoSrv.cmx -o echoSrv.native
+File "_none_", line 1:
+Error: No implementations provided for the following modules:
+         Str referenced from echoSrv.cmx
+Command exited with code 2.
+# Compilation unsuccessful.

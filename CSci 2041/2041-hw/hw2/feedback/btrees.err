@@ -1,0 +1,4 @@
+File "btrees.ml", line 46, characters 6-28:
+Warning 11: this match case is unused.
+File "../../data/hw2/btrees_tests.ml", line 85, characters 33-42:
+Error: Unbound value check_bst

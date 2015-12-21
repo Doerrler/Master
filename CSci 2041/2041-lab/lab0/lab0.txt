@@ -1,0 +1,1 @@
+i: We can't get the answer since the function only work with positive integers.
