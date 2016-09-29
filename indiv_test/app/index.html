@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+    <title>COMP3111/H: Basecode project of the Unit Testing Exercise</title>
+    <script src="lib/angular.min.js"></script>
+    <script src="todo.js"></script>
+    <link rel="stylesheet" href="todo.css">    
+  </head>
+  <body>
+    <h2>COMP3111/H Individual Task 2: Unit Testing</h2>
+		
+	<h3><a href="coverage/index.html" target="_blank">Link to the coverage report</a></h3>	
+	<h4>Goal: Achieve 100% statement and branch coverage</h4> 
+	<h4>Instructions:</h4>
+	
+	<pre>
+Go to the project directory (i.e. the directory containing package.json)
+Type in "npm install" to install development tools
+The unit test cases (i.e. todo_test.js) should be written inside the unit_tests folder	
+Write ALL your test cases inside "todo_test.js"
+Type in "npm test" to run the unit tests
+Type in "npm start" 
+Open a web browser and visit http://localhost:8080/
+	</pre>
+	
+	<h4>Submission</h4>
+	<pre>
+Submit a single file "todo_test.js" to Canvas before the assignment deadline
+	</pre>
+	
+	<hr>
+	<h3>TodoApp</h3>
+    <div ng-controller="TodoListController as todoList">
+      <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+      [ <a href="" ng-click="todoList.archive()">archive</a> ]
+      <ul class="unstyled">
+        <li ng-repeat="todo in todoList.todos">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </label>
+        </li>
+      </ul>
+      <form ng-submit="todoList.addTodo()">
+        <input type="text" ng-model="todoList.todoText"  size="30"
+               placeholder="add new todo here">
+        <input class="btn-primary" type="submit" value="add">
+      </form>
+    </div>
+  </body>
+</html>
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
